@@ -1,0 +1,9 @@
+{
+  "name": "Win7Keu",
+  "short_name": "Win7Keu",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#164c75",
+  "theme_color": "#173c62",
+  "icons": []
+}
