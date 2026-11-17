@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#173c62">
+  <meta name="description" content="Win7Keu — uma área de trabalho web inspirada no estilo clássico dos computadores.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="style.css">
+  <title>Win7Keu</title>
+</head>
+<body>
+  <main class="desktop" id="desktop" aria-label="Área de trabalho Win7Keu">
+    <div class="desktop-icons">
+      <button class="desktop-icon" data-window="computer"><span class="ico">🖥️</span><span>Computador</span></button>
+      <button class="desktop-icon" data-window="files"><span class="ico">📁</span><span>Meus arquivos</span></button>
+      <button class="desktop-icon" data-window="player"><span class="ico">🎵</span><span>Media Player</span></button>
+      <button class="desktop-icon" data-window="about"><span class="ico">ℹ️</span><span>Sobre o Win7Keu</span></button>
+    </div>
+
+    <section class="window hidden" id="window-computer" aria-label="Computador">
+      <header class="window-head"><strong>🖥️ Computador</strong><button class="close" aria-label="Fechar">×</button></header>
+      <div class="window-body">
+        <h2>Bem-vindo ao Win7Keu</h2>
+        <p>Esta é a primeira versão independente da área de trabalho web.</p>
+        <div class="tile-grid"><div class="tile">💽<br><b>Disco local</b><small>Em preparação</small></div><div class="tile">🌐<br><b>Rede</b><small>Em preparação</small></div></div>
+      </div>
+    </section>
+
+    <section class="window hidden" id="window-files" aria-label="Meus arquivos">
+      <header class="window-head"><strong>📁 Meus arquivos</strong><button class="close" aria-label="Fechar">×</button></header>
+      <div class="window-body">
+        <h2>Biblioteca</h2>
+        <p>O espaço para arquivos pessoais e compartilhados será conectado ao banco de dados em uma próxima etapa.</p>
+        <div class="notice">Ainda não há arquivos cadastrados.</div>
+      </div>
+    </section>
+
+    <section class="window hidden" id="window-player" aria-label="Media Player">
+      <header class="window-head"><strong>🎵 Win7Keu Media Player</strong><button class="close" aria-label="Fechar">×</button></header>
+      <div class="window-body player">
+        <div class="disc">♫</div>
+        <h2>Reprodutor de música</h2>
+        <p>Selecione uma música do seu aparelho para reproduzir.</p>
+        <label class="file-label">Escolher música <input id="audio-file" type="file" accept="audio/*"></label>
+        <audio id="audio" controls></audio>
+        <p class="muted" id="track-name">Nenhuma música selecionada</p>
+      </div>
+    </section>
+
+    <section class="window hidden" id="window-about" aria-label="Sobre o Win7Keu">
+      <header class="window-head"><strong>ℹ️ Sobre o Win7Keu</strong><button class="close" aria-label="Fechar">×</button></header>
+      <div class="window-body">
+        <div class="about-logo">Win7<span>Keu</span></div>
+        <h2>Área de trabalho web</h2>
+        <p>Desenvolvedor: Cleudeson Soares</p>
+        <p>Versão inicial 1.0</p>
+        <p>Projeto independente, inspirado na experiência visual dos desktops clássicos.</p>
+      </div>
+    </section>
+
+    <div class="start-menu hidden" id="start-menu">
+      <div class="start-user">Win7Keu</div>
+      <button data-window="computer">🖥️ Computador</button>
+      <button data-window="files">📁 Meus arquivos</button>
+      <button data-window="player">🎵 Media Player</button>
+      <button data-window="about">ℹ️ Sobre</button>
+    </div>
+
+    <footer class="taskbar">
+      <button class="start-button" id="start-button" aria-label="Abrir menu iniciar"><span class="start-orb">✦</span></button>
+      <div class="task-apps" id="task-apps"></div>
+      <div class="tray"><span id="clock">--:--</span></div>
+    </footer>
+  </main>
+  <script src="app.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js").catch(()=>{}));
+  </script>
+</body>
+</html>
